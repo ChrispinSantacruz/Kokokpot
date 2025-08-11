@@ -3,6 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "echo 'no build script'"
+    "build": "powershell -Command \"if (Test-Path 'public') { Remove-Item 'public' -Recurse -Force }; New-Item -ItemType Directory -Name 'public'; Get-ChildItem -Path '.' -Exclude 'public','.git','node_modules' | Copy-Item -Destination 'public' -Recurse -Force\""
   }
 }

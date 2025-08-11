@@ -227,40 +227,40 @@ app.get('/api/test', (req, res) => {
   res.json({ message: 'Server is working!', timestamp: new Date().toISOString() })
 })
 
-// DESPUÉS de las APIs, servir archivos estáticos
-app.use(express.static(path.join(__dirname, '..', '..')))
+// DESPUÉS de las APIs, servir archivos estáticos desde el directorio public
+app.use(express.static(path.join(__dirname, '..', '..', 'public')))
 
 // FRONTEND ROUTES
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'index.html'))
+  res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'))
 })
 
 app.get('/login', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'login.html'))
+  res.sendFile(path.join(__dirname, '..', '..', 'public', 'login.html'))
 })
 
 app.get('/menu', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'menu.html'))
+  res.sendFile(path.join(__dirname, '..', '..', 'public', 'menu.html'))
 })
 
 app.get('/game', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'game.html'))
+  res.sendFile(path.join(__dirname, '..', '..', 'public', 'game.html'))
 })
 
 app.get('/leaderboard', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', '..', 'leaderboard.html'))
+  res.sendFile(path.join(__dirname, '..', '..', 'public', 'leaderboard.html'))
 })
 
 // Catch-all
 app.get('*', (req, res) => {
   console.log(`Frontend route requested: ${req.path}`)
-  res.sendFile(path.join(__dirname, '..', '..', 'index.html'))
+  res.sendFile(path.join(__dirname, '..', '..', 'public', 'index.html'))
 })
 
 const port = process.env.PORT || 8081
 app.listen(port, () => {
   console.log(`🚀 Server running on http://localhost:${port}`)
-  console.log(`📁 Static files served from: ${path.join(__dirname, '..', '..')}`)
+  console.log(`📁 Static files served from: ${path.join(__dirname, '..', '..', 'public')}`)
   console.log(`🎮 Frontend available at: http://localhost:${port}`)
 })
 

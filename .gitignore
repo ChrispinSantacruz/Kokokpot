@@ -79,7 +79,7 @@ dist
 
 # Gatsby files
 .cache/
-public
+
 
 # Storybook build outputs
 .out
@@ -109,6 +109,7 @@ Thumbs.db
 build/
 dist/
 out/
+public/
 
 # Database files
 *.db
