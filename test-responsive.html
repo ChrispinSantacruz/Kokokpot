@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Responsive - Kokok-Pot</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game.css">
+    <style>
+        .test-container {
+            padding: 2vw;
+            max-width: 95vw;
+            margin: 0 auto;
+        }
+        
+        .test-info {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2vw;
+            border-radius: 1.5vw;
+            margin: 2vh 0;
+            color: white;
+            text-align: center;
+        }
+        
+        .test-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
+            gap: 2vw;
+            margin: 2vh 0;
+        }
+        
+        .test-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2vw;
+            border-radius: 1.5vw;
+            text-align: center;
+            color: white;
+            min-height: 15vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5vw;
+        }
+        
+        .responsive-test {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 2vh 3vw;
+            border-radius: 2vw;
+            text-align: center;
+            margin: 2vh 0;
+            font-size: 2vw;
+        }
+    </style>
+</head>
+<body class="game-page">
+    <div class="container">
+        <div class="test-container">
+            <div class="game-header">
+                <h1 class="game-title">
+                    <div class="game-title-logo"></div>
+                    <span class="game-title-text">TEST RESPONSIVE</span>
+                </h1>
+                <button class="btn btn-back"></button>
+            </div>
+
+            <div class="test-info">
+                <h2>Prueba de Responsividad</h2>
+                <p>Redimensiona la ventana para ver cómo se adaptan los elementos</p>
+                <p>Ancho actual: <span id="currentWidth"></span>px</p>
+                <p>Alto actual: <span id="currentHeight"></span>px</p>
+            </div>
+
+            <div class="game-info">
+                <div class="info-item">
+                    <span class="label">Player:</span>
+                    <span>Test User</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Spins left:</span>
+                    <span>50</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Score:</span>
+                    <span>0</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Free spins:</span>
+                    <span>0</span>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="reels">
+                    <div class="reel">
+                        <div class="symbol">🍒</div>
+                    </div>
+                    <div class="reel">
+                        <div class="symbol">🍊</div>
+                    </div>
+                    <div class="reel">
+                        <div class="symbol">🍇</div>
+                    </div>
+                </div>
+                
+                <button class="spin-button">🎰 SPIN</button>
+                <button class="btn btn-secondary">🔄 Restart</button>
+            </div>
+
+            <div class="test-grid">
+                <div class="test-item">Elemento 1</div>
+                <div class="test-item">Elemento 2</div>
+                <div class="test-item">Elemento 3</div>
+                <div class="test-item">Elemento 4</div>
+            </div>
+
+            <div class="responsive-test">
+                Este botón se adapta al tamaño de la pantalla usando vw y vh
+            </div>
+
+            <div class="message-area">
+                <div class="message info">Mensaje de prueba que se adapta</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateDimensions() {
+            document.getElementById('currentWidth').textContent = window.innerWidth;
+            document.getElementById('currentHeight').textContent = window.innerHeight;
+        }
+        
+        window.addEventListener('load', updateDimensions);
+        window.addEventListener('resize', updateDimensions);
+        
+        // Simular el comportamiento del botón spin
+        document.querySelector('.spin-button').addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = 'scale(1)';
+            }, 150);
+        });
+    </script>
+</body>
+</html>
+
+
+
