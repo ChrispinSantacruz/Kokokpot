@@ -109,6 +109,8 @@ Thumbs.db
 build/
 dist/
 out/
+public/
+
 # Database files
 *.db
 *.sqlite
