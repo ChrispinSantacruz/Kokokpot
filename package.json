@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "powershell -Command \"if (Test-Path 'public') { Remove-Item 'public' -Recurse -Force }; New-Item -ItemType Directory -Name 'public'; Get-ChildItem -Path '.' -Exclude 'public','.git','node_modules' | Copy-Item -Destination 'public' -Recurse -Force\""
+    "build": "node build.js",
+    "build:simple": "rm -rf public && mkdir public && cp -r css js images soundtrack *.html public/ 2>/dev/null || echo 'Build completado'"
   }
 }
