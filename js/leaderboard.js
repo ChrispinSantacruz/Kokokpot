@@ -59,7 +59,7 @@ class LeaderboardManager {
             this.renderLeaderboard()
           }
         })
-        .catch(() => {})
+        .catch(() => { })
     }
     return local
   }
@@ -98,15 +98,15 @@ class LeaderboardManager {
   startAutoRefresh() {
     const base = window.API_BASE
     if (!base) return
-    
+
     // Refrescar cada 3 segundos para actualizaciones más frecuentes
     setInterval(() => {
       this.refreshFromBackend()
     }, 3000)
-    
+
     // También refrescar inmediatamente
     this.refreshFromBackend()
-    
+
     // Agregar botón de refresh manual
     this.addManualRefreshButton()
   }
@@ -115,7 +115,7 @@ class LeaderboardManager {
     try {
       const base = window.API_BASE
       if (!base) return
-      
+
       const response = await fetch(`${base}/api/leaderboard`)
       if (response.ok) {
         const remote = await response.json()
@@ -154,7 +154,7 @@ class LeaderboardManager {
     if (!tableBody) return
 
     const topScores = this.getTopScores(20) // Mostrar top 20 en lugar de 10
-    
+
     if (topScores.length === 0) {
       tableBody.innerHTML = `
         <tr>
@@ -172,7 +172,7 @@ class LeaderboardManager {
       const rowClass = isCurrentUser ? "current-user" : ""
       const position = index + 1
       const positionClass = position <= 3 ? `position-${position}` : ""
-      
+
       return `
         <tr class="${rowClass} ${positionClass}">
           <td class="position">${position}</td>

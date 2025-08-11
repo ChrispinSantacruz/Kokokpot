@@ -75,20 +75,9 @@ class SlotMachine {
     const playAgainBtn = document.getElementById("playAgainBtn")
     const menuBtn = document.getElementById("menuBtn")
     const restartBtn = document.getElementById("restartBtn")
-    const palanca = document.getElementById("palanca")
 
     spinBtn.addEventListener("click", () => this.spin())
     backBtn.addEventListener("click", () => (window.location.href = "menu.html"))
-
-    if (palanca) {
-      palanca.addEventListener("click", () => this.spin())
-      palanca.addEventListener("mouseenter", () => {
-        palanca.style.backgroundImage = "url('../images/palanca2.png')"
-      })
-      palanca.addEventListener("mouseleave", () => {
-        palanca.style.backgroundImage = "url('../images/palanca1.png')"
-      })
-    }
 
     if (playAgainBtn) {
       playAgainBtn.addEventListener("click", () => this.resetGame())
@@ -189,7 +178,7 @@ class SlotMachine {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ username: this.currentUser, spinsLeft: this.spinsLeft, currentScore: this.currentScore }),
-        }).catch(() => {})
+        }).catch(() => { })
       }
     } catch (error) {
       console.error("Error durante el giro:", error)
@@ -457,7 +446,7 @@ class SlotMachine {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username: this.currentUser, score: this.currentScore, spins: 30 }),
-      }).catch(() => {})
+      }).catch(() => { })
     }
   }
 
@@ -474,7 +463,7 @@ class SlotMachine {
             currentScore: this.currentScore
           })
         })
-        
+
         if (response.ok) {
           console.log('✅ Progress saved successfully')
           // También actualizar el leaderboard local para mostrar el score actual
@@ -491,10 +480,10 @@ class SlotMachine {
   updateLocalLeaderboard() {
     // Actualizar el leaderboard local con el score actual
     const leaderboard = JSON.parse(localStorage.getItem('leaderboard') || '[]')
-    
+
     // Buscar si ya existe un score para este usuario
     const existingIndex = leaderboard.findIndex(score => score.player === this.currentUser)
-    
+
     if (existingIndex >= 0) {
       // Actualizar score existente si es mejor
       if (this.currentScore > leaderboard[existingIndex].score) {
@@ -511,13 +500,13 @@ class SlotMachine {
         timestamp: Date.now()
       })
     }
-    
+
     // Ordenar por score descendente
     leaderboard.sort((a, b) => b.score - a.score)
-    
+
     // Guardar en localStorage
     localStorage.setItem('leaderboard', JSON.stringify(leaderboard))
-    
+
     // Si estamos en la página del leaderboard, actualizarla
     if (window.location.pathname.includes('leaderboard.html') && window.leaderboardManager) {
       window.leaderboardManager.renderLeaderboard()

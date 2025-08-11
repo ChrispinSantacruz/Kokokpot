@@ -5,7 +5,6 @@ body.game-page {
   overflow-x: hidden;
 }
 
-/* Estilos para la palanca */
 .slot-machine {
   position: relative;
   display: flex;
@@ -15,28 +14,6 @@ body.game-page {
   width: 100%;
   max-width: 95vw;
   margin: 0 auto;
-}
-
-.palanca-container {
-  position: absolute;
-  right: clamp(-1vw, -12vw, -5vw); /* más pegada al jackpot */
-  top: 50%;
-  transform: translateY(-50%);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.palanca {
-  width: 20vw; /* 70% más grande (6vw * 1.7) */
-  height: 20vh; /* 70% más grande (12vh * 1.7) */
-  background: url('../images/palanca1.png') no-repeat center center;
-  background-size: contain;
-  transition: background-image 0.2s ease;
-}
-
-.palanca:hover {
-  background-image: url('../images/palanca2.png');
-  transform: scale(1.1);
 }
 
 /* Botón back personalizado */
@@ -100,30 +77,41 @@ body.game-page {
 /* Estilos para el jackpot */
 .reels {
   background: url('../images/jackpot.png') no-repeat center center;
-  background-size: contain; /* evita recortes del marco */
-  padding: clamp(8px, 2.5vw, 40px); /* Reducido el padding interno */
+  background-size: contain;
+  /* evita recortes del marco */
+  padding: clamp(8px, 2.5vw, 40px);
+  /* Reducido el padding interno */
   border-radius: 2vw;
   position: relative;
   display: flex;
-  gap: 1.5vw; /* Gap más pequeño para juntar más los reels */
+  gap: 1.5vw;
+  /* Gap más pequeño para juntar más los reels */
   justify-content: center;
   align-items: center;
-  min-height: clamp(476px, 64.6vh, 935px); /* Aumentado el alto mínimo un 70% más */
+  min-height: clamp(476px, 64.6vh, 935px);
+  /* Aumentado el alto mínimo un 70% más */
   width: 100%;
-  max-width: 161.5vw; /* Aumentado el ancho máximo un 70% más */
+  max-width: 161.5vw;
+  /* Aumentado el ancho máximo un 70% más */
   margin: 0 auto;
 }
 
 .reel {
-  background: transparent !important; /* Eliminado el fondo blanco/gris */
+  background: transparent !important;
+  /* Eliminado el fondo blanco/gris */
   border-radius: 1.5vw;
   padding: clamp(8px, 1.5vw, 25px);
-  box-shadow: none; /* Eliminada la sombra interna */
-  border: none; /* Eliminado el marco amarillo */
-  overflow: hidden; /* que los símbolos no se salgan visualmente */
-  min-width: clamp(100px, 12vw, 280px); /* Reducido el ancho mínimo */
+  box-shadow: none;
+  /* Eliminada la sombra interna */
+  border: none;
+  /* Eliminado el marco amarillo */
+  overflow: hidden;
+  /* que los símbolos no se salgan visualmente */
+  min-width: clamp(100px, 12vw, 280px);
+  /* Reducido el ancho mínimo */
   min-height: clamp(120px, 20vh, 300px);
-  max-width: 20vw; /* Reducido el ancho máximo */
+  max-width: 20vw;
+  /* Reducido el ancho máximo */
   max-height: 35vh;
   display: flex;
   align-items: center;
@@ -139,13 +127,15 @@ body.game-page {
   left: 0;
   right: 0;
   bottom: 0;
-  background: transparent; /* Eliminado el efecto de brillo */
+  background: transparent;
+  /* Eliminado el efecto de brillo */
   border-radius: 1.2vw;
   pointer-events: none;
 }
 
 .symbol {
-  font-size: clamp(32px, 4.5vw, 80px) !important; /* tamaño reducido */
+  font-size: clamp(32px, 4.5vw, 80px) !important;
+  /* tamaño reducido */
   width: auto;
   height: auto;
   display: flex;
@@ -155,13 +145,15 @@ body.game-page {
   text-align: center;
   text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.5);
   animation: symbolGlow 2s ease-in-out infinite alternate;
-  transform: translateY(5%); /* Baja los símbolos un 5% para mejor posicionamiento */
+  transform: translateY(5%);
+  /* Baja los símbolos un 5% para mejor posicionamiento */
 }
 
 @keyframes symbolGlow {
   from {
     text-shadow: 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.5);
   }
+
   to {
     text-shadow: 0.2vw 0.2vw 2vw rgba(255, 215, 0, 0.8), 0.2vw 0.2vw 0.4vw rgba(0, 0, 0, 0.5);
   }
@@ -175,6 +167,7 @@ body.game-page {
   0% {
     transform: translateY(0);
   }
+
   100% {
     transform: translateY(-8vh);
   }
@@ -187,10 +180,12 @@ body.game-page {
 }
 
 @keyframes reelWin {
+
   0%,
   100% {
     transform: scale(1);
   }
+
   50% {
     transform: scale(1.1);
   }
@@ -218,14 +213,20 @@ body.game-page {
 /* Escala para pantallas grandes */
 @media (min-width: 1400px) {
   .reels {
-    max-width: 166.6vw; /* Aumentado un 70% más */
-    gap: 1.5vw; /* Gap más pequeño para juntar más los reels */
-    min-height: clamp(595px, 76.5vh, 1105px); /* Aumentado un 70% más */
+    max-width: 166.6vw;
+    /* Aumentado un 70% más */
+    gap: 1.5vw;
+    /* Gap más pequeño para juntar más los reels */
+    min-height: clamp(595px, 76.5vh, 1105px);
+    /* Aumentado un 70% más */
   }
+
   .reel {
-    min-width: clamp(160px, 18vw, 360px); /* Reducido proporcionalmente */
+    min-width: clamp(160px, 18vw, 360px);
+    /* Reducido proporcionalmente */
     min-height: clamp(200px, 26vh, 420px);
   }
+
   .symbol {
     font-size: clamp(48px, 5.5vw, 96px) !important;
   }
@@ -233,9 +234,17 @@ body.game-page {
 
 /* Rebote sutil al asentarse el símbolo */
 @keyframes settleBounce {
-  0% { transform: translateY(-6%); }
-  60% { transform: translateY(2%); }
-  100% { transform: translateY(0); }
+  0% {
+    transform: translateY(-6%);
+  }
+
+  60% {
+    transform: translateY(2%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .symbol.settle-bounce {
@@ -320,6 +329,7 @@ body.game-page {
     transform: translateY(-100vh) rotate(0deg);
     opacity: 1;
   }
+
   100% {
     transform: translateY(100vh) rotate(360deg);
     opacity: 0;
@@ -344,10 +354,12 @@ body.game-page {
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
   }
+
   50% {
     transform: translate(-50%, -50%) scale(1.2);
     opacity: 1;
   }
+
   100% {
     transform: translate(-50%, -50%) scale(1);
     opacity: 0;
@@ -401,6 +413,7 @@ body.game-page {
     transform: translateY(-2vh);
     opacity: 0;
   }
+
   to {
     transform: translateY(0);
     opacity: 1;
@@ -414,20 +427,13 @@ body.game-page {
     padding: clamp(12px, 3vw, 40px);
     gap: 1.5vw;
   }
-  
+
   .reel {
     min-width: 12vw;
     min-height: 18vh;
   }
-  
-  .palanca-container {
-    right: -4vw;
-  }
-  
-  .palanca {
-    width: 5vw;
-    height: 10vh;
-  }
+
+
 }
 
 @media (max-width: 768px) {
@@ -435,45 +441,38 @@ body.game-page {
     padding: 1.5vw;
     max-width: 98vw;
   }
-  
+
   .slot-machine {
     padding: 1vw;
     gap: 1.5vh;
   }
-  
+
   .reels {
     max-width: 94vw;
     padding: 2.5vw;
     gap: 1vw;
     min-height: 20vh;
   }
-  
+
   .reel {
     min-width: 15vw;
     min-height: 12vh;
     padding: 1.5vw;
   }
-  
+
   .spin-button {
     padding: 1.2vh 2.5vw;
     font-size: 2.5vw;
     min-width: 25vw;
   }
-  
+
   .btn-secondary {
     padding: 0.8vh 1.8vw;
     font-size: 2vw;
   }
-  
-  .palanca-container {
-    right: -2.5vw;
-  }
-  
-  .palanca {
-    width: 4vw;
-    height: 8vh;
-  }
-  
+
+
+
   .message {
     font-size: 2vw;
     padding: 0.8vh 1.5vw;
@@ -485,12 +484,12 @@ body.game-page {
     padding: 1vw;
     max-width: 99vw;
   }
-  
+
   .slot-machine {
     padding: 0.8vw;
     gap: 1vh;
   }
-  
+
   .reels {
     max-width: 96vw;
     padding: 2vw;
@@ -499,43 +498,36 @@ body.game-page {
     flex-direction: column;
     align-items: center;
   }
-  
+
   .reel {
     min-width: 20vw;
     min-height: 10vh;
     padding: 1vw;
   }
-  
+
   .spin-button {
     padding: 1vh 2vw;
     font-size: 3vw;
     min-width: 30vw;
   }
-  
+
   .btn-secondary {
     padding: 0.6vh 1.5vw;
     font-size: 2.5vw;
   }
-  
-  .palanca-container {
-    right: -1.8vw;
-  }
-  
-  .palanca {
-    width: 3vw;
-    height: 6vh;
-  }
-  
+
+
+
   .message {
     font-size: 2.5vw;
     padding: 0.6vh 1.2vw;
   }
-  
+
   .btn-back {
     width: 8vw;
     height: 4vw;
   }
-  
+
   .game-title-logo {
     width: 6vw;
     height: 6vw;
@@ -549,33 +541,26 @@ body.game-page {
     gap: 0.6vw;
     min-height: 16vh;
   }
-  
+
   .reel {
     min-width: 25vw;
     min-height: 8vh;
     padding: 0.8vw;
   }
-  
+
   .spin-button {
     padding: 0.8vh 1.5vw;
     font-size: 3.5vw;
     min-width: 35vw;
   }
-  
+
   .btn-secondary {
     padding: 0.5vh 1.2vw;
     font-size: 3vw;
   }
-  
-  .palanca-container {
-    right: -2vw;
-  }
-  
-  .palanca {
-    width: 2.5vw;
-    height: 5vh;
-  }
-  
+
+
+
   .message {
     font-size: 3vw;
     padding: 0.5vh 1vw;
@@ -632,21 +617,21 @@ body.game-page {
   .game-screen {
     padding: 1vw;
   }
-  
+
   .reels {
     min-height: 15vh;
     padding: 1.5vw;
   }
-  
+
   .reel {
     min-height: 8vh;
   }
-  
+
   .spin-button {
     margin-top: 1vh;
     padding: 0.8vh 2vw;
   }
-  
+
   .message-area {
     margin-top: 1vh;
     min-height: 4vh;
@@ -655,7 +640,8 @@ body.game-page {
 
 /* Tamaño de las imágenes de símbolos dentro de los carretes */
 .slot-icon {
-  width: 70%;              /* reducir tamaño relativo */
+  width: 70%;
+  /* reducir tamaño relativo */
   max-height: 80%;
   height: auto;
   display: block;
@@ -679,7 +665,8 @@ body.game-page {
 
 .game-page .game-header {
   display: flex;
-  justify-content: flex-start; /* a la izquierda */
+  justify-content: flex-start;
+  /* a la izquierda */
   align-items: center;
   margin-bottom: 5vh;
 }
@@ -689,13 +676,18 @@ body.game-page {
   left: 0;
   top: 0;
   transform: none;
-  margin-left: -8vw; /* separación con el borde izquierdo */
+  margin-left: -8vw;
+  /* separación con el borde izquierdo */
 }
 
 /* ================= Portrait-only responsive (vertical) ================= */
 @media (max-width: 920px) and (orientation: portrait) {
+
   /* Forzar 3 columnas 1 fila y símbolos más grandes */
-  .slot-machine { gap: 1.2vh; }
+  .slot-machine {
+    gap: 1.2vh;
+  }
+
   .reels {
     flex-direction: row !important;
     justify-content: center;
@@ -706,6 +698,7 @@ body.game-page {
     max-width: 94vw;
     background-size: contain;
   }
+
   .reel {
     min-width: 26vw;
     max-width: 28vw;
@@ -713,14 +706,24 @@ body.game-page {
     max-height: 26vh;
     padding: 2vw;
   }
-  .slot-icon { width: 88%; max-height: 88%; }
-  .symbol { font-size: 10vw !important; transform: none; }
+
+  .slot-icon {
+    width: 88%;
+    max-height: 88%;
+  }
+
+  .symbol {
+    font-size: 10vw !important;
+    transform: none;
+  }
 
   /* Botón spin grande */
-  .spin-button { min-width: 70vw; height: 10.5vh; }
+  .spin-button {
+    min-width: 70vw;
+    height: 10.5vh;
+  }
 
-  /* Ocultar palanca en responsive vertical */
-  .palanca-container { display: none !important; }
+
 
   /* Back fijo arriba-izquierda grande (juego) */
   .game-page .game-header .btn-back {
@@ -733,5 +736,3 @@ body.game-page {
     margin-left: 0;
   }
 }
-
-
