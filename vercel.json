@@ -4,7 +4,6 @@
   "outputDirectory": "public",
   "installCommand": "npm install",
   "framework": null,
-  "functions": {},
   "routes": [
     {
       "src": "/",
