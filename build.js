@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-console.log('🚀 Iniciando build del proyecto...');
+console.log('🚀 Iniciando build del proyecto para Vercel...');
 
 // Función para eliminar directorio recursivamente
 function removeDirectory(dirPath) {
@@ -32,7 +32,7 @@ function copyDirectory(source, destination) {
     const destPath = path.join(destination, item);
 
     // Excluir directorios y archivos específicos
-    if (item === 'public' || item === '.git' || item === 'node_modules' || item === 'build.js') {
+    if (item === 'public' || item === '.git' || item === 'node_modules' || item === 'build.js' || item === '.vercelignore') {
       console.log(`⏭️  Excluyendo: ${item}`);
       continue;
     }
@@ -66,11 +66,7 @@ function build() {
 
     // Paso 4: Verificar que se copiaron los archivos importantes
     const importantFiles = [
-      'index.html',
-      'login.html',
-      'menu.html',
-      'game.html',
-      'leaderboard.html'
+      'test-responsive.html'
     ];
 
     console.log('\n✅ Verificando archivos importantes...');
@@ -84,7 +80,7 @@ function build() {
     }
 
     // Paso 5: Verificar directorios importantes
-    const importantDirs = ['css', 'js', 'images', 'soundtrack'];
+    const importantDirs = ['server'];
     console.log('\n✅ Verificando directorios importantes...');
     for (const dir of importantDirs) {
       const dirPath = path.join(publicDir, dir);

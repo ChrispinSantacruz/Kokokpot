@@ -7,23 +7,11 @@
   "routes": [
     {
       "src": "/",
-      "dest": "/index.html"
+      "dest": "/test-responsive.html"
     },
     {
-      "src": "/login",
-      "dest": "/login.html"
-    },
-    {
-      "src": "/menu",
-      "dest": "/menu.html"
-    },
-    {
-      "src": "/game",
-      "dest": "/game.html"
-    },
-    {
-      "src": "/leaderboard",
-      "dest": "/leaderboard.html"
+      "src": "/test",
+      "dest": "/test-responsive.html"
     }
   ]
 }
