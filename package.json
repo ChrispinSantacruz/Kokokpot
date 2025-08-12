@@ -4,6 +4,10 @@
   "private": true,
   "scripts": {
     "build": "node build.js",
-    "build:simple": "rm -rf public && mkdir public && cp -r css js images soundtrack *.html public/ 2>/dev/null || echo 'Build completado'"
+    "build:simple": "rm -rf public && mkdir public && cp -r css js images soundtrack *.html public/ 2>/dev/null || echo 'Build completado'",
+    "vercel-build": "node build.js"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
